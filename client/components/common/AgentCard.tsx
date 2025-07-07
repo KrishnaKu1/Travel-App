@@ -107,8 +107,9 @@ export default function AgentCard({ agent }: AgentCardProps) {
             <Button
               className="flex-1 h-9 md:h-10 text-xs md:text-sm touch-manipulation"
               size="sm"
+              asChild
             >
-              View Profile
+              <Link to={`/agent/${agent.id}`}>View Profile</Link>
             </Button>
             <Button
               variant="outline"
