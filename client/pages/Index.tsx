@@ -138,17 +138,21 @@ export default function Index() {
                 </p>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="text-lg px-8" asChild>
+              <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
+                <Button
+                  size="lg"
+                  className="text-base md:text-lg px-6 md:px-8 h-12 md:h-14 touch-manipulation"
+                  asChild
+                >
                   <Link to="/browse-agents">
                     Find Travel Agents
-                    <ArrowRight className="ml-2 h-5 w-5" />
+                    <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
                   </Link>
                 </Button>
                 <Button
                   size="lg"
                   variant="outline"
-                  className="text-lg px-8"
+                  className="text-base md:text-lg px-6 md:px-8 h-12 md:h-14 touch-manipulation"
                   asChild
                 >
                   <Link to="/join-as-agent">Become an Agent</Link>
@@ -156,11 +160,21 @@ export default function Index() {
               </div>
 
               {/* Agent & Admin Access */}
-              <div className="flex flex-col sm:flex-row gap-3 pt-4">
-                <Button variant="ghost" size="sm" asChild>
+              <div className="flex flex-col xs:flex-row gap-2 md:gap-3 pt-4">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="h-10 touch-manipulation"
+                  asChild
+                >
                   <Link to="/agent/sign-in">Sign In as Agent</Link>
                 </Button>
-                <Button variant="ghost" size="sm" asChild>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="h-10 touch-manipulation"
+                  asChild
+                >
                   <Link to="/admin/sign-in">Admin Access</Link>
                 </Button>
               </div>
