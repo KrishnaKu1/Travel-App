@@ -31,13 +31,15 @@ export default function Header() {
 
   const navigation = [
     { name: "Browse Agents", href: "/browse-agents", icon: MapPin },
+    { name: "Travel Packages", href: "/packages", icon: Calendar },
     { name: "Top Destinations", href: "/destinations", icon: Star },
     { name: "How it Works", href: "/how-it-works", icon: Calendar },
   ];
 
   const agentNavigation = [
     { name: "Dashboard", href: "/agent/dashboard", icon: Settings },
-    { name: "My Itineraries", href: "/agent/itineraries", icon: Calendar },
+    { name: "My Packages", href: "/agent/packages", icon: Calendar },
+    { name: "My Itineraries", href: "/agent/itineraries", icon: MapPin },
     { name: "Customers", href: "/agent/customers", icon: User },
   ];
 
