@@ -80,12 +80,16 @@ export default function Header() {
 
         {/* Right side actions */}
         <div className="flex items-center space-x-4">
+          {/* Get Started button - always visible */}
+          <Button size="sm" asChild>
+            <Link to="/join-as-agent">Get Started</Link>
+          </Button>
+
           {!isLoggedIn ? (
             <div className="hidden md:flex items-center space-x-2">
-              <Button variant="ghost" size="sm">
-                Sign In
+              <Button variant="ghost" size="sm" asChild>
+                <Link to="/agent/sign-in">Agent Login</Link>
               </Button>
-              <Button size="sm">Get Started</Button>
             </div>
           ) : (
             <DropdownMenu>
@@ -170,10 +174,12 @@ export default function Header() {
 
                 {!isLoggedIn && (
                   <div className="flex flex-col space-y-2 pt-4 border-t">
-                    <Button variant="ghost" className="justify-start">
-                      Sign In
+                    <Button variant="ghost" className="justify-start" asChild>
+                      <Link to="/agent/sign-in">Agent Login</Link>
                     </Button>
-                    <Button className="justify-start">Get Started</Button>
+                    <Button className="justify-start" asChild>
+                      <Link to="/join-as-agent">Get Started</Link>
+                    </Button>
                   </div>
                 )}
               </div>
