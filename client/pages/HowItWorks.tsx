@@ -202,13 +202,23 @@ export default function HowItWorks() {
             every step of the way.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="secondary" className="bg-white text-primary hover:bg-white/90" asChild>
+            <Button
+              size="lg"
+              variant="secondary"
+              className="bg-white text-primary hover:bg-white/90"
+              asChild
+            >
               <Link to="/browse-agents">
                 Start Planning Your Trip
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary" asChild>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-white text-white hover:bg-white hover:text-primary"
+              asChild
+            >
               <Link to="/join-as-agent">Become a Travel Agent</Link>
             </Button>
           </div>
@@ -314,34 +324,35 @@ export default function HowItWorks() {
             className="w-full h-full object-cover opacity-10"
           />
         </div>
-        <div className="relative z-10 bg-muted/80 backdrop-blur-sm">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Why Choose Wanderly?
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              We're committed to making your travel experience extraordinary
-            </p>
-          </div>
+        <div className="relative z-10 bg-muted/80 backdrop-blur-sm py-16 md:py-24">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                Why Choose Wanderly?
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                We're committed to making your travel experience extraordinary
+              </p>
+            </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {benefits.map((benefit, index) => {
-              const Icon = benefit.icon;
-              return (
-                <Card key={index} className="text-center">
-                  <CardHeader>
-                    <Icon className="h-12 w-12 text-primary mx-auto mb-4" />
-                    <CardTitle>{benefit.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground">
-                      {benefit.description}
-                    </p>
-                  </CardContent>
-                </Card>
-              );
-            })}
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {benefits.map((benefit, index) => {
+                const Icon = benefit.icon;
+                return (
+                  <Card key={index} className="text-center">
+                    <CardHeader>
+                      <Icon className="h-12 w-12 text-primary mx-auto mb-4" />
+                      <CardTitle>{benefit.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-muted-foreground">
+                        {benefit.description}
+                      </p>
+                    </CardContent>
+                  </Card>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
@@ -399,7 +410,9 @@ export default function HowItWorks() {
                 <div className="absolute inset-0 bg-gradient-to-r from-primary/80 to-transparent flex items-center">
                   <div className="text-white p-6">
                     <h4 className="text-xl font-bold mb-2">Join Our Success</h4>
-                    <p className="text-white/90">Start growing your travel business today</p>
+                    <p className="text-white/90">
+                      Start growing your travel business today
+                    </p>
                   </div>
                 </div>
               </div>
@@ -419,7 +432,9 @@ export default function HowItWorks() {
                   <CardContent className="p-6 text-center">
                     <Globe className="h-8 w-8 text-primary mx-auto mb-2" />
                     <div className="text-2xl font-bold">50+</div>
-                    <div className="text-sm text-muted-foreground">Countries</div>
+                    <div className="text-sm text-muted-foreground">
+                      Countries
+                    </div>
                   </CardContent>
                 </Card>
                 <Card>
