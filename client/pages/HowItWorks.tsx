@@ -243,10 +243,49 @@ export default function HowItWorks() {
                     </ul>
                   </div>
                   <div className={isEven ? "md:col-start-1" : ""}>
-                    <Card className="border-2 border-primary/20">
-                      <CardContent className="p-8">
-                        <div className="aspect-square bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg flex items-center justify-center">
-                          <Icon className="h-16 w-16 text-primary" />
+                    <Card className="border-2 border-primary/20 overflow-hidden">
+                      <CardContent className="p-0">
+                        <div className="aspect-square relative">
+                          {index === 0 && (
+                            <img
+                              src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=600&h=600&fit=crop"
+                              alt="Browse and search travel agents"
+                              className="w-full h-full object-cover"
+                            />
+                          )}
+                          {index === 1 && (
+                            <img
+                              src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=600&fit=crop"
+                              alt="Connect and discuss with travel expert"
+                              className="w-full h-full object-cover"
+                            />
+                          )}
+                          {index === 2 && (
+                            <img
+                              src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=600&h=600&fit=crop"
+                              alt="Get personalized travel itinerary"
+                              className="w-full h-full object-cover"
+                            />
+                          )}
+                          {index === 3 && (
+                            <img
+                              src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&h=600&fit=crop"
+                              alt="Secure booking and payment"
+                              className="w-full h-full object-cover"
+                            />
+                          )}
+                          {index === 4 && (
+                            <img
+                              src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&h=600&fit=crop"
+                              alt="Travel and enjoy your perfect trip"
+                              className="w-full h-full object-cover"
+                            />
+                          )}
+                          <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
+                            <div className="bg-white/90 backdrop-blur-sm rounded-full p-4">
+                              <Icon className="h-12 w-12 text-primary" />
+                            </div>
+                          </div>
                         </div>
                       </CardContent>
                     </Card>
