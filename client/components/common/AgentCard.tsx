@@ -92,22 +92,30 @@ export default function AgentCard({ agent }: AgentCardProps) {
         </div>
 
         {/* Stats and actions */}
-        <div className="bg-muted/30 px-6 py-4">
-          <div className="flex items-center justify-between text-sm text-muted-foreground mb-3">
+        <div className="bg-muted/30 px-4 md:px-6 py-4">
+          <div className="flex items-center justify-between text-xs md:text-sm text-muted-foreground mb-3">
             <div className="flex items-center gap-1">
-              <MessageCircle className="h-4 w-4" />
-              <span>Responds in {agent.responseTime}</span>
+              <MessageCircle className="h-3 w-3 md:h-4 md:w-4" />
+              <span className="truncate">Responds in {agent.responseTime}</span>
             </div>
-            <div className="font-medium text-foreground">
+            <div className="font-medium text-foreground text-xs md:text-sm">
               {agent.priceRange}
             </div>
           </div>
 
           <div className="flex gap-2">
-            <Button className="flex-1" size="sm">
+            <Button
+              className="flex-1 h-9 md:h-10 text-xs md:text-sm touch-manipulation"
+              size="sm"
+            >
               View Profile
             </Button>
-            <Button variant="outline" size="sm">
+            <Button
+              variant="outline"
+              size="sm"
+              className="h-9 md:h-10 w-9 md:w-10 p-0 touch-manipulation"
+              aria-label="Message agent"
+            >
               <MessageCircle className="h-4 w-4" />
             </Button>
           </div>
