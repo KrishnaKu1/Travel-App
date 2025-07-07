@@ -19,6 +19,9 @@ import AdminPackages from "./pages/AdminPackages";
 import AgentSignIn from "./pages/AgentSignIn";
 import JoinAsAgent from "./pages/JoinAsAgent";
 import AdminSignIn from "./pages/AdminSignIn";
+import Destinations from "./pages/Destinations";
+import HowItWorks from "./pages/HowItWorks";
+import AgentProfile from "./pages/AgentProfile";
 
 const queryClient = new QueryClient();
 
@@ -31,8 +34,11 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/browse-agents" element={<BrowseAgents />} />
+          <Route path="/agent/:id" element={<AgentProfile />} />
           <Route path="/packages" element={<BrowsePackages />} />
           <Route path="/package/:id" element={<PackageDetail />} />
+          <Route path="/destinations" element={<Destinations />} />
+          <Route path="/how-it-works" element={<HowItWorks />} />
           <Route path="/agent/sign-in" element={<AgentSignIn />} />
           <Route path="/join-as-agent" element={<JoinAsAgent />} />
           <Route path="/agent/dashboard" element={<AgentDashboard />} />
