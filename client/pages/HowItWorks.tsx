@@ -390,41 +390,63 @@ export default function HowItWorks() {
               </Button>
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
-              <Card>
-                <CardContent className="p-6 text-center">
-                  <Users className="h-8 w-8 text-primary mx-auto mb-2" />
-                  <div className="text-2xl font-bold">10K+</div>
-                  <div className="text-sm text-muted-foreground">
-                    Active Customers
+            <div className="space-y-6">
+              {/* Agent Success Image */}
+              <div className="relative rounded-lg overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=800&h=400&fit=crop"
+                  alt="Successful travel agent working with customers"
+                  className="w-full h-48 object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/80 to-transparent flex items-center">
+                  <div className="text-white p-6">
+                    <h4 className="text-xl font-bold mb-2">Join Our Success</h4>
+                    <p className="text-white/90">
+                      Start growing your travel business today
+                    </p>
                   </div>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardContent className="p-6 text-center">
-                  <Globe className="h-8 w-8 text-primary mx-auto mb-2" />
-                  <div className="text-2xl font-bold">50+</div>
-                  <div className="text-sm text-muted-foreground">Countries</div>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardContent className="p-6 text-center">
-                  <Star className="h-8 w-8 text-primary mx-auto mb-2" />
-                  <div className="text-2xl font-bold">4.9</div>
-                  <div className="text-sm text-muted-foreground">
-                    Average Rating
-                  </div>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardContent className="p-6 text-center">
-                  <Award className="h-8 w-8 text-primary mx-auto mb-2" />
-                  <div className="text-2xl font-bold">98%</div>
-                  <div className="text-sm text-muted-foreground">
-                    Success Rate
-                  </div>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
+
+              {/* Stats Grid */}
+              <div className="grid grid-cols-2 gap-4">
+                <Card>
+                  <CardContent className="p-6 text-center">
+                    <Users className="h-8 w-8 text-primary mx-auto mb-2" />
+                    <div className="text-2xl font-bold">10K+</div>
+                    <div className="text-sm text-muted-foreground">
+                      Active Customers
+                    </div>
+                  </CardContent>
+                </Card>
+                <Card>
+                  <CardContent className="p-6 text-center">
+                    <Globe className="h-8 w-8 text-primary mx-auto mb-2" />
+                    <div className="text-2xl font-bold">50+</div>
+                    <div className="text-sm text-muted-foreground">
+                      Countries
+                    </div>
+                  </CardContent>
+                </Card>
+                <Card>
+                  <CardContent className="p-6 text-center">
+                    <Star className="h-8 w-8 text-primary mx-auto mb-2" />
+                    <div className="text-2xl font-bold">4.9</div>
+                    <div className="text-sm text-muted-foreground">
+                      Average Rating
+                    </div>
+                  </CardContent>
+                </Card>
+                <Card>
+                  <CardContent className="p-6 text-center">
+                    <Award className="h-8 w-8 text-primary mx-auto mb-2" />
+                    <div className="text-2xl font-bold">98%</div>
+                    <div className="text-sm text-muted-foreground">
+                      Success Rate
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
             </div>
           </div>
         </div>
