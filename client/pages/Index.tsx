@@ -120,18 +120,18 @@ export default function Index() {
 
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-br from-primary/5 via-background to-accent/5">
-        <div className="container mx-auto px-4 py-24 lg:py-32">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="container mx-auto px-4 py-16 md:py-24 lg:py-32">
+          <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
             <div className="space-y-8">
               <div className="space-y-4">
                 <Badge variant="secondary" className="w-fit">
                   🌍 Trusted by 100K+ travelers worldwide
                 </Badge>
-                <h1 className="text-4xl lg:text-6xl font-bold tracking-tight">
+                <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold tracking-tight leading-tight">
                   Your Perfect Trip
                   <span className="text-primary block">Starts Here</span>
                 </h1>
-                <p className="text-xl text-muted-foreground max-w-lg">
+                <p className="text-lg md:text-xl text-muted-foreground max-w-lg leading-relaxed">
                   Connect with local travel experts who craft personalized
                   itineraries just for you. Discover hidden gems and create
                   unforgettable memories.
@@ -165,13 +165,13 @@ export default function Index() {
                 </Button>
               </div>
 
-              <div className="flex items-center gap-8 pt-4">
+              <div className="grid grid-cols-2 md:flex md:items-center gap-4 md:gap-8 pt-6">
                 {stats.map((stat, index) => (
                   <div key={index} className="text-center">
-                    <div className="text-2xl font-bold text-primary">
+                    <div className="text-xl md:text-2xl font-bold text-primary">
                       {stat.number}
                     </div>
-                    <div className="text-sm text-muted-foreground">
+                    <div className="text-xs md:text-sm text-muted-foreground">
                       {stat.label}
                     </div>
                   </div>
