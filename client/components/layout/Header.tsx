@@ -47,14 +47,19 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container mx-auto flex h-16 items-center justify-between px-4">
+      <div className="container mx-auto flex h-16 md:h-18 items-center justify-between px-4 md:px-6">
         {/* Logo */}
-        <Link to="/" className="flex items-center space-x-2">
+        <Link
+          to="/"
+          className="flex items-center space-x-2 min-w-0 flex-shrink-0"
+        >
           <div className="relative">
-            <Plane className="h-8 w-8 text-primary" />
-            <div className="absolute -bottom-1 -right-1 h-3 w-3 rounded-full bg-accent"></div>
+            <Plane className="h-7 w-7 md:h-8 md:w-8 text-primary" />
+            <div className="absolute -bottom-1 -right-1 h-2.5 w-2.5 md:h-3 md:w-3 rounded-full bg-accent"></div>
           </div>
-          <span className="text-xl font-bold text-foreground">Wanderly</span>
+          <span className="text-lg md:text-xl font-bold text-foreground hidden xs:block">
+            Wanderly
+          </span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -79,15 +84,24 @@ export default function Header() {
         </nav>
 
         {/* Right side actions */}
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-2 md:space-x-4">
           {/* Get Started button - always visible */}
-          <Button size="sm" asChild>
+          <Button
+            size="sm"
+            className="h-9 px-3 md:px-4 text-xs md:text-sm"
+            asChild
+          >
             <Link to="/join-as-agent">Get Started</Link>
           </Button>
 
           {!isLoggedIn ? (
-            <div className="hidden md:flex items-center space-x-2">
-              <Button variant="ghost" size="sm" asChild>
+            <div className="hidden sm:flex items-center space-x-2">
+              <Button
+                variant="ghost"
+                size="sm"
+                className="h-9 px-3 md:px-4 text-xs md:text-sm"
+                asChild
+              >
                 <Link to="/agent/sign-in">Agent Login</Link>
               </Button>
             </div>
@@ -141,7 +155,12 @@ export default function Header() {
           {/* Mobile menu */}
           <Sheet>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="sm" className="md:hidden">
+              <Button
+                variant="ghost"
+                size="sm"
+                className="md:hidden h-9 w-9 p-0 touch-manipulation"
+                aria-label="Open menu"
+              >
                 <Menu className="h-5 w-5" />
               </Button>
             </SheetTrigger>
