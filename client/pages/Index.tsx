@@ -145,8 +145,23 @@ export default function Index() {
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
                 </Button>
-                <Button size="lg" variant="outline" className="text-lg px-8">
-                  Become an Agent
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="text-lg px-8"
+                  asChild
+                >
+                  <Link to="/join-as-agent">Become an Agent</Link>
+                </Button>
+              </div>
+
+              {/* Agent & Admin Access */}
+              <div className="flex flex-col sm:flex-row gap-3 pt-4">
+                <Button variant="ghost" size="sm" asChild>
+                  <Link to="/agent/sign-in">Sign In as Agent</Link>
+                </Button>
+                <Button variant="ghost" size="sm" asChild>
+                  <Link to="/admin/sign-in">Admin Access</Link>
                 </Button>
               </div>
 
@@ -185,7 +200,7 @@ export default function Index() {
                       <div className="flex items-center gap-3">
                         <Star className="h-8 w-8 text-accent" />
                         <div>
-                          <div className="font-semibold">4.9★ Rating</div>
+                          <div className="font-semibold">4.9��� Rating</div>
                           <div className="text-sm text-muted-foreground">
                             Verified reviews
                           </div>
