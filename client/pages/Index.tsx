@@ -1,62 +1,392 @@
-import { DemoResponse } from "@shared/api";
-import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+import {
+  MapPin,
+  Star,
+  Users,
+  Globe,
+  Calendar,
+  Shield,
+  Heart,
+  Plane,
+  Camera,
+  Award,
+  Clock,
+  CheckCircle,
+  Search,
+  ArrowRight,
+} from "lucide-react";
 
 export default function Index() {
-  const [exampleFromServer, setExampleFromServer] = useState("");
-  // Fetch users on component mount
-  useEffect(() => {
-    fetchDemo();
-  }, []);
+  const features = [
+    {
+      icon: Search,
+      title: "Find Expert Agents",
+      description:
+        "Connect with verified local travel agents who know their destinations inside out.",
+    },
+    {
+      icon: Calendar,
+      title: "Custom Itineraries",
+      description:
+        "Get personalized day-by-day travel plans crafted specifically for your preferences.",
+    },
+    {
+      icon: Shield,
+      title: "Secure Booking",
+      description:
+        "Book with confidence through our secure platform with full payment protection.",
+    },
+    {
+      icon: Heart,
+      title: "Unforgettable Experiences",
+      description:
+        "Access hidden gems and authentic experiences only locals know about.",
+    },
+  ];
 
-  // Example of how to fetch data from the server (if needed)
-  const fetchDemo = async () => {
-    try {
-      const response = await fetch("/api/demo");
-      const data = (await response.json()) as DemoResponse;
-      setExampleFromServer(data.message);
-    } catch (error) {
-      console.error("Error fetching hello:", error);
-    }
-  };
+  const stats = [
+    { number: "10,000+", label: "Travel Agents" },
+    { number: "50+", label: "Countries" },
+    { number: "100K+", label: "Happy Travelers" },
+    { number: "4.9", label: "Average Rating" },
+  ];
+
+  const topAgents = [
+    {
+      name: "Sofia Rodriguez",
+      location: "Barcelona, Spain",
+      rating: 4.9,
+      reviews: 127,
+      specialties: ["Cultural Tours", "Food & Wine"],
+      image:
+        "https://images.unsplash.com/photo-1494790108755-2616b612b4c0?w=400&h=400&fit=crop&crop=face",
+    },
+    {
+      name: "Kenji Tanaka",
+      location: "Tokyo, Japan",
+      rating: 5.0,
+      reviews: 89,
+      specialties: ["Traditional Culture", "Modern Cities"],
+      image:
+        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
+    },
+    {
+      name: "Maria Santos",
+      location: "Rio de Janeiro, Brazil",
+      rating: 4.8,
+      reviews: 156,
+      specialties: ["Adventure", "Nature"],
+      image:
+        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face",
+    },
+  ];
+
+  const howItWorks = [
+    {
+      step: "1",
+      title: "Browse & Connect",
+      description:
+        "Search for travel agents by destination, specialty, or rating. Read reviews and compare profiles.",
+    },
+    {
+      step: "2",
+      title: "Get Your Itinerary",
+      description:
+        "Work with your chosen agent to create a personalized travel plan that fits your style and budget.",
+    },
+    {
+      step: "3",
+      title: "Book & Travel",
+      description:
+        "Securely book your trip through our platform and enjoy your perfectly planned adventure.",
+    },
+  ];
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200">
-      <div className="text-center">
-        {/* TODO: FUSION_GENERATION_APP_PLACEHOLDER replace everything here with the actual app! */}
-        <h1 className="text-2xl font-semibold text-slate-800 flex items-center justify-center gap-3">
-          <svg
-            className="animate-spin h-8 w-8 text-slate-400"
-            viewBox="0 0 50 50"
-          >
-            <circle
-              className="opacity-30"
-              cx="25"
-              cy="25"
-              r="20"
-              stroke="currentColor"
-              strokeWidth="5"
-              fill="none"
-            />
-            <circle
-              className="text-slate-600"
-              cx="25"
-              cy="25"
-              r="20"
-              stroke="currentColor"
-              strokeWidth="5"
-              fill="none"
-              strokeDasharray="100"
-              strokeDashoffset="75"
-            />
-          </svg>
-          Generating your app...
-        </h1>
-        <p className="mt-4 text-slate-600 max-w-md">
-          Watch the chat on the left for updates that might need your attention
-          to finish generating
-        </p>
-        <p className="mt-4 hidden max-w-md">{exampleFromServer}</p>
-      </div>
+    <div className="min-h-screen bg-background">
+      <Header />
+
+      {/* Hero Section */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-primary/5 via-background to-accent/5">
+        <div className="container mx-auto px-4 py-24 lg:py-32">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-8">
+              <div className="space-y-4">
+                <Badge variant="secondary" className="w-fit">
+                  🌍 Trusted by 100K+ travelers worldwide
+                </Badge>
+                <h1 className="text-4xl lg:text-6xl font-bold tracking-tight">
+                  Your Perfect Trip
+                  <span className="text-primary block">Starts Here</span>
+                </h1>
+                <p className="text-xl text-muted-foreground max-w-lg">
+                  Connect with local travel experts who craft personalized
+                  itineraries just for you. Discover hidden gems and create
+                  unforgettable memories.
+                </p>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button size="lg" className="text-lg px-8" asChild>
+                  <Link to="/browse-agents">
+                    Find Travel Agents
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
+                </Button>
+                <Button size="lg" variant="outline" className="text-lg px-8">
+                  Become an Agent
+                </Button>
+              </div>
+
+              <div className="flex items-center gap-8 pt-4">
+                {stats.map((stat, index) => (
+                  <div key={index} className="text-center">
+                    <div className="text-2xl font-bold text-primary">
+                      {stat.number}
+                    </div>
+                    <div className="text-sm text-muted-foreground">
+                      {stat.label}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="relative">
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-4">
+                  <Card className="border-2 border-primary/20">
+                    <CardContent className="p-4">
+                      <div className="flex items-center gap-3">
+                        <MapPin className="h-8 w-8 text-primary" />
+                        <div>
+                          <div className="font-semibold">Local Experts</div>
+                          <div className="text-sm text-muted-foreground">
+                            Insider knowledge
+                          </div>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                  <Card>
+                    <CardContent className="p-4">
+                      <div className="flex items-center gap-3">
+                        <Star className="h-8 w-8 text-accent" />
+                        <div>
+                          <div className="font-semibold">4.9★ Rating</div>
+                          <div className="text-sm text-muted-foreground">
+                            Verified reviews
+                          </div>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+                <div className="space-y-4 pt-8">
+                  <Card>
+                    <CardContent className="p-4">
+                      <div className="flex items-center gap-3">
+                        <Shield className="h-8 w-8 text-green-500" />
+                        <div>
+                          <div className="font-semibold">Secure</div>
+                          <div className="text-sm text-muted-foreground">
+                            Protected payments
+                          </div>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                  <Card className="border-2 border-accent/30">
+                    <CardContent className="p-4">
+                      <div className="flex items-center gap-3">
+                        <Globe className="h-8 w-8 text-accent" />
+                        <div>
+                          <div className="font-semibold">50+ Countries</div>
+                          <div className="text-sm text-muted-foreground">
+                            Global network
+                          </div>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works */}
+      <section className="py-24">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+              How Wanderly Works
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Three simple steps to your perfect trip
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
+            {howItWorks.map((step, index) => (
+              <div key={index} className="text-center">
+                <div className="w-16 h-16 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">
+                  {step.step}
+                </div>
+                <h3 className="text-xl font-semibold mb-4">{step.title}</h3>
+                <p className="text-muted-foreground">{step.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Features */}
+      <section className="py-24 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+              Why Choose Wanderly
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Experience the difference of expert-crafted travel
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {features.map((feature, index) => {
+              const Icon = feature.icon;
+              return (
+                <Card key={index} className="text-center">
+                  <CardHeader>
+                    <Icon className="h-12 w-12 text-primary mx-auto mb-4" />
+                    <CardTitle className="text-xl">{feature.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <CardDescription className="text-base">
+                      {feature.description}
+                    </CardDescription>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Top Agents */}
+      <section className="py-24">
+        <div className="container mx-auto px-4">
+          <div className="flex justify-between items-center mb-16">
+            <div>
+              <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+                Featured Travel Agents
+              </h2>
+              <p className="text-xl text-muted-foreground">
+                Meet some of our top-rated travel experts
+              </p>
+            </div>
+            <Button variant="outline" asChild>
+              <Link to="/browse-agents">View All Agents</Link>
+            </Button>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {topAgents.map((agent, index) => (
+              <Card
+                key={index}
+                className="overflow-hidden hover:shadow-lg transition-shadow"
+              >
+                <CardContent className="p-6">
+                  <div className="flex items-center gap-4 mb-4">
+                    <Avatar className="h-16 w-16">
+                      <AvatarImage src={agent.image} alt={agent.name} />
+                      <AvatarFallback>
+                        {agent.name
+                          .split(" ")
+                          .map((n) => n[0])
+                          .join("")}
+                      </AvatarFallback>
+                    </Avatar>
+                    <div>
+                      <h3 className="font-semibold text-lg">{agent.name}</h3>
+                      <p className="text-muted-foreground flex items-center gap-1">
+                        <MapPin className="h-4 w-4" />
+                        {agent.location}
+                      </p>
+                      <div className="flex items-center gap-2 mt-1">
+                        <div className="flex items-center gap-1">
+                          <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                          <span className="font-medium">{agent.rating}</span>
+                        </div>
+                        <span className="text-muted-foreground">
+                          ({agent.reviews} reviews)
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-wrap gap-2">
+                    {agent.specialties.map((specialty, idx) => (
+                      <Badge key={idx} variant="secondary">
+                        {specialty}
+                      </Badge>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-24 bg-primary text-primary-foreground">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+            Ready to Start Your Journey?
+          </h2>
+          <p className="text-xl mb-8 text-primary-foreground/90 max-w-2xl mx-auto">
+            Join thousands of travelers who trust Wanderly for their perfect
+            trips. Your adventure is just a click away.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button
+              size="lg"
+              variant="secondary"
+              className="text-lg px-8"
+              asChild
+            >
+              <Link to="/browse-agents">
+                Start Exploring
+                <Plane className="ml-2 h-5 w-5" />
+              </Link>
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="text-lg px-8 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary"
+            >
+              Become an Agent
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
     </div>
   );
 }
