@@ -179,8 +179,16 @@ export default function HowItWorks() {
       <Header />
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary/5 via-background to-accent/5 py-16 md:py-24">
-        <div className="container mx-auto px-4 text-center">
+      <section className="relative py-16 md:py-24 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img
+            src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=1920&h=800&fit=crop"
+            alt="Beautiful landscape representing travel journey"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/80 via-primary/60 to-accent/70"></div>
+        </div>
+        <div className="container mx-auto px-4 text-center relative z-10 text-white">
           <Badge variant="secondary" className="mb-4">
             🌍 How Wanderly Works
           </Badge>
@@ -188,19 +196,29 @@ export default function HowItWorks() {
             Your Perfect Trip in
             <span className="text-primary block">5 Simple Steps</span>
           </h1>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+          <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto mb-8">
             Connect with local travel experts who create personalized
             experiences just for you. From planning to traveling, we're with you
             every step of the way.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" asChild>
+            <Button
+              size="lg"
+              variant="secondary"
+              className="bg-white text-primary hover:bg-white/90"
+              asChild
+            >
               <Link to="/browse-agents">
                 Start Planning Your Trip
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
-            <Button size="lg" variant="outline" asChild>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-white text-white hover:bg-white hover:text-primary"
+              asChild
+            >
               <Link to="/join-as-agent">Become a Travel Agent</Link>
             </Button>
           </div>
