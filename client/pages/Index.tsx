@@ -394,8 +394,9 @@ export default function Index() {
               size="lg"
               variant="outline"
               className="text-lg px-8 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary"
+              asChild
             >
-              Become an Agent
+              <Link to="/join-as-agent">Become an Agent</Link>
             </Button>
           </div>
         </div>
