@@ -164,41 +164,58 @@ export default function Header() {
                 <Menu className="h-5 w-5" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-              <div className="flex flex-col gap-4">
-                <div className="flex items-center space-x-2 pb-4 border-b">
-                  <Plane className="h-6 w-6 text-primary" />
-                  <span className="text-lg font-bold">Wanderly</span>
+            <SheetContent side="right" className="w-[280px] sm:w-[320px] p-0">
+              <div className="flex flex-col h-full">
+                {/* Header */}
+                <div className="flex items-center space-x-3 p-6 pb-4 border-b">
+                  <div className="relative">
+                    <Plane className="h-7 w-7 text-primary" />
+                    <div className="absolute -bottom-1 -right-1 h-2.5 w-2.5 rounded-full bg-accent"></div>
+                  </div>
+                  <span className="text-xl font-bold">Wanderly</span>
                 </div>
 
-                <nav className="flex flex-col space-y-2">
-                  {currentNav.map((item) => {
-                    const Icon = item.icon;
-                    return (
-                      <Link
-                        key={item.name}
-                        to={item.href}
-                        className={`flex items-center space-x-2 p-2 rounded-md text-sm font-medium transition-colors hover:bg-accent ${
-                          location.pathname === item.href
-                            ? "bg-accent text-accent-foreground"
-                            : "text-muted-foreground hover:text-accent-foreground"
-                        }`}
-                      >
-                        <Icon className="h-4 w-4" />
-                        <span>{item.name}</span>
-                      </Link>
-                    );
-                  })}
+                {/* Navigation */}
+                <nav className="flex-1 px-6 py-4">
+                  <div className="space-y-1">
+                    {currentNav.map((item) => {
+                      const Icon = item.icon;
+                      return (
+                        <Link
+                          key={item.name}
+                          to={item.href}
+                          className={`flex items-center space-x-3 px-3 py-3 rounded-lg text-base font-medium transition-colors touch-manipulation ${
+                            location.pathname === item.href
+                              ? "bg-primary text-primary-foreground"
+                              : "text-foreground hover:bg-accent hover:text-accent-foreground"
+                          }`}
+                        >
+                          <Icon className="h-5 w-5 flex-shrink-0" />
+                          <span>{item.name}</span>
+                        </Link>
+                      );
+                    })}
+                  </div>
                 </nav>
 
+                {/* Bottom Actions */}
                 {!isLoggedIn && (
-                  <div className="flex flex-col space-y-2 pt-4 border-t">
-                    <Button variant="ghost" className="justify-start" asChild>
-                      <Link to="/agent/sign-in">Agent Login</Link>
-                    </Button>
-                    <Button className="justify-start" asChild>
-                      <Link to="/join-as-agent">Get Started</Link>
-                    </Button>
+                  <div className="p-6 pt-4 border-t bg-muted/30">
+                    <div className="space-y-3">
+                      <Button
+                        variant="ghost"
+                        className="w-full justify-start h-12 text-base"
+                        asChild
+                      >
+                        <Link to="/agent/sign-in">
+                          <User className="mr-3 h-5 w-5" />
+                          Agent Login
+                        </Link>
+                      </Button>
+                      <Button className="w-full h-12 text-base" asChild>
+                        <Link to="/join-as-agent">Get Started</Link>
+                      </Button>
+                    </div>
                   </div>
                 )}
               </div>
