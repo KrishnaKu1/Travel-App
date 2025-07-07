@@ -16,6 +16,9 @@ import PackageDetail from "./pages/PackageDetail";
 import CreatePackage from "./pages/CreatePackage";
 import ManagePackages from "./pages/ManagePackages";
 import AdminPackages from "./pages/AdminPackages";
+import AgentSignIn from "./pages/AgentSignIn";
+import JoinAsAgent from "./pages/JoinAsAgent";
+import AdminSignIn from "./pages/AdminSignIn";
 
 const queryClient = new QueryClient();
 
@@ -30,9 +33,12 @@ const App = () => (
           <Route path="/browse-agents" element={<BrowseAgents />} />
           <Route path="/packages" element={<BrowsePackages />} />
           <Route path="/package/:id" element={<PackageDetail />} />
+          <Route path="/agent/sign-in" element={<AgentSignIn />} />
+          <Route path="/join-as-agent" element={<JoinAsAgent />} />
           <Route path="/agent/dashboard" element={<AgentDashboard />} />
           <Route path="/agent/packages" element={<ManagePackages />} />
           <Route path="/agent/create-package" element={<CreatePackage />} />
+          <Route path="/admin/sign-in" element={<AdminSignIn />} />
           <Route path="/admin/dashboard" element={<AdminDashboard />} />
           <Route path="/admin/packages" element={<AdminPackages />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
