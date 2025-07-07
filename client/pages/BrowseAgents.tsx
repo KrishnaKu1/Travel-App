@@ -151,21 +151,21 @@ export default function BrowseAgents() {
     <div className="min-h-screen bg-background">
       <Header />
 
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-4 py-6 md:py-8">
         {/* Header */}
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold mb-2">
+        <div className="mb-6 md:mb-8">
+          <h1 className="text-2xl md:text-3xl font-bold mb-2">
             Find Your Perfect Travel Agent
           </h1>
-          <p className="text-muted-foreground">
+          <p className="text-sm md:text-base text-muted-foreground">
             Connect with verified local experts from around the world
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-4 gap-8">
+        <div className="grid lg:grid-cols-4 gap-6 lg:gap-8">
           {/* Filters Sidebar */}
-          <div className="lg:col-span-1">
-            <Card>
+          <div className="lg:col-span-1 order-2 lg:order-1">
+            <Card className="lg:sticky lg:top-20">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <SlidersHorizontal className="h-5 w-5" />
@@ -273,18 +273,18 @@ export default function BrowseAgents() {
           </div>
 
           {/* Results */}
-          <div className="lg:col-span-3">
+          <div className="lg:col-span-3 order-1 lg:order-2">
             {/* Results header */}
-            <div className="flex items-center justify-between mb-6">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
               <div>
-                <p className="text-muted-foreground">
+                <p className="text-sm md:text-base text-muted-foreground">
                   Showing {agents.length} agents
                 </p>
               </div>
 
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-3">
                 <Select defaultValue="rating">
-                  <SelectTrigger className="w-40">
+                  <SelectTrigger className="w-36 md:w-40 h-9">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
@@ -304,7 +304,8 @@ export default function BrowseAgents() {
                     variant={viewMode === "grid" ? "default" : "ghost"}
                     size="sm"
                     onClick={() => setViewMode("grid")}
-                    className="rounded-r-none"
+                    className="rounded-r-none h-9 w-9 p-0"
+                    aria-label="Grid view"
                   >
                     <Grid3X3 className="h-4 w-4" />
                   </Button>
@@ -312,7 +313,8 @@ export default function BrowseAgents() {
                     variant={viewMode === "list" ? "default" : "ghost"}
                     size="sm"
                     onClick={() => setViewMode("list")}
-                    className="rounded-l-none"
+                    className="rounded-l-none h-9 w-9 p-0"
+                    aria-label="List view"
                   >
                     <List className="h-4 w-4" />
                   </Button>
@@ -322,9 +324,9 @@ export default function BrowseAgents() {
 
             {/* Results grid */}
             <div
-              className={`grid gap-6 ${
+              className={`grid gap-4 md:gap-6 ${
                 viewMode === "grid"
-                  ? "md:grid-cols-2 xl:grid-cols-3"
+                  ? "grid-cols-1 sm:grid-cols-2 xl:grid-cols-3"
                   : "grid-cols-1"
               }`}
             >
